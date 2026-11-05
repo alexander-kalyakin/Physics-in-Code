@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамика Кода | Главная</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Конфигурация и подключение MathJax для отображения красивых формул -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://jsdelivr.net" id="MathJax-script" async></script>
+</head>
+<body id="home">
+
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Динамика Кода</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#articles">Статьи</a></li>
+                <!-- Кнопка переключения темы -->
+                <li><button class="theme-btn" id="themeBtn">Темная тема</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main>
+
+        <!-- ЛЕВАЯ КОЛОНКА: Раздел публикаций с живым поиском -->
+        <section id="articles">
+            <h2>Публикации</h2>
+            
+            <!-- Поле живого поиска -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Введите название, текст или тег статьи для поиска...">
+            </div>
+            
+            <!-- В этот пустой контейнер JavaScript будет вставлять наши статьи -->
+            <div id="postsContainer"></div>
+        </section>
+
+        <!-- ПРАВАЯ КОЛОНКА: Боковая панель -->
+        <aside id="about">
+            <h3>Об авторе</h3>
+            <p>Привет! Меня зовут Алекс. Я изучаю физику и программирование, создаю симуляции движения на Python и рассказываю, как формулы из учебника работают в реальных IT-проектах.</p>
+            
+            <h3>Подписка</h3>
+            <p>Следите за новыми разборами физических движков и алгоритмов в Telegram и YouTube.</p>
+        </aside>
+
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2026 Динамика Кода. Все права защищены.</p>
+        <p><a href="#privacy">Политика конфиденциальности</a></p>
+    </footer>
+
+    <!-- Модальное окно для полного текста статьи -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody">
+                <!-- Сюда JavaScript будет подставлять контент статьи -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем JavaScript-файл перед закрывающим тегом body -->
+    <script src="script.js"></script>
+</body>
+</html>
+
