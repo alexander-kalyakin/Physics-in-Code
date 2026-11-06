@@ -1,572 +1,302 @@
-/* =======================================================================
-   1. ГЛОБАЛЬНЫЙ СБРОС И БАЗОВЫЕ НАСТРОЙКИ
-   =======================================================================*/
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f9;
-    color: #333333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* =======================================================================
-   2. ГЛАВНАЯ ШАПКА САЙТА (HEADER) И НАВИГАЦИЯ (NAV)
-   =======================================================================*/
-body > header {
-    background-color: #2c3e50;
-    color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-body > header h1 {
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex; 
-    gap: 25px;
-    align-items: center;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #1abc9c;
-}
-
-.theme-btn {
-    background-color: #1abc9c;
-    color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: inherit;
-    transition: background-color 0.3s ease;
-}
-
-.theme-btn:hover {
-    background-color: #16a085;
-}
-
-/* =======================================================================
-   3. ОСНОВНОЙ КОНТЕНТ (MAIN) И ДВУХКОЛОНОЧНАЯ СЕТКА (FLEXBOX)
-   ===================================================================== */
-main {
-    max-width: 1150px;   
-    margin: 40px auto;   
-    padding: 0 20px;     
-    display: flex;
-    gap: 30px;           
-    align-items: flex-start; 
-}
-
-main section {
-    flex: 7; 
-}
-
-section h2 {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 25px;
-}
-
-/* Карточка отдельной статьи */
-article {
-    background-color: #ffffff;
-    padding: 30px;
-    margin-bottom: 35px; 
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-/* Шапка внутри статьи */
-article header {
-    background: transparent !important; 
-    padding: 0 !important;
-    margin-bottom: 15px !important;
-    display: block !important; 
-    text-align: left !important;
-}
-
-article header h3 {
-    font-size: 1.5rem !important;
-    color: #2c3e50 !important; 
-    display: block !important;
-}
-
-article header p {
-    font-size: 0.9rem !important;
-    color: #7f8c8d !important; 
-}
-
-/* Сворачивание текста статей в ленте */
-.article-text.short {
-    display: -webkit-box;
-    -webkit-line-clamp: 1; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Кнопка Читать далее */
-.read-more-btn {
-    background: none;
-    border: none;
-    color: #2c3e50;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0;
-    margin-bottom: 20px;
-    text-decoration: underline;
-    font-family: inherit;
-}
-
-.read-more-btn:hover {
-    color: #1abc9c;
-}
-
-/* Подвал статьи с тегами и лайками */
-article footer {
-    border-top: 1px dashed #e2e8f0; 
-    padding-top: 15px;
-    font-size: 0.9rem;
-    color: #1abc9c;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Кнопка лайка */
-.like-btn {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 5px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-
-.like-btn:hover {
-    background-color: #e0e0e0;
-}
-
-/* Кнопка лайка после нажатия */
-.like-btn.liked {
-    background-color: #e74c3c !important;
-    border-color: #e74c3c !important;
-    color: white !important;
-    cursor: default;
-}
-
-/* --- ПРАВАЯ КОЛОНКА: БОКОВАЯ ПАНЕЛЬ (SIDEBAR) --- */
-main aside {
-    flex: 3; 
-    background-color: #eef2f3;
-    padding: 25px;
-    border-radius: 8px;
-    border-left: 6px solid #2c3e50; 
-}
-
-aside h3 {
-    color: #2c3e50 !important; 
-    margin-bottom: 12px;
-}
-
-aside h3:not(:first-child) {
-    margin-top: 25px; 
-}
-
-aside p {
-    font-size: 0.95rem;
-    color: #4a5568;
-}
-
-/* =====================================================================
-   4. ПОДВАЛ САЙТА (FOOTER)
-   ===================================================================== */
-body > footer {
-    background-color: #34495e;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px;
-    margin-top: 60px;
-    font-size: 0.9rem;
-}
-
-body > footer p {
-    margin-bottom: 5px;
-}
-
-body > footer a {
-    color: #1abc9c;
-    text-decoration: none;
-}
-
-body > footer a:hover {
-    text-decoration: underline; 
-}
-
-/* =======================================================================
-   5. СТИЛИ ДЛЯ ЖИВОГО ПОИСКА
-   =======================================================================*/
-.search-container { 
-    margin-bottom: 25px; 
-}
-
-#searchInput {
-    width: 100%;
-    padding: 12px 15px;
-    font-size: 1rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    outline: none;
-    font-family: inherit;
-    transition: all 0.3s ease;
-}
-
-#searchInput:focus {
-    border-color: #1abc9c;
-    box-shadow: 0 0 5px rgba(26, 188, 156, 0.2);
-}
-
-.no-results {
-    color: #7f8c8d;
-    font-style: italic;
-    text-align: center;
-    margin-top: 20px;
-}
-/* =======================================================================
-   6. СТИЛИ ИНТЕРАКТИВНОЙ ФОРМЫ ДОБАВЛЕНИЯ СТАТЕЙ (ПР7)
-   =======================================================================*/
-.article-form {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 35px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-}
-
-.article-form h3 {
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
-    font-size: 0.95rem;
-    color: #333333;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: #1abc9c;
-}
-
-.submit-btn {
-    background-color: #2c3e50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 100%;
-    transition: background 0.2s;
-}
-
-.submit-btn:hover { 
-    background-color: #34495e; 
-}
-
-/* =======================================================================
-   7. СТИЛИ МОДАЛЬНОГО ОКНА (ВСПЛЫВАЮЩЕЕ ОКНО СТАТЬИ)
-   =======================================================================*/
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    backdrop-filter: blur(4px); 
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.modal-content {
-    background-color: #ffffff;
-    padding: 35px;
-    border-radius: 12px;
-    max-width: 700px;
-    width: 90%;
-    max-height: 85vh;
-    overflow-y: auto; 
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.3s ease;
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #7f8c8d;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-modal:hover {
-    color: #e74c3c;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Оформление красивой верстки контента внутри модалки */
-#modalBody h3 {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    padding-right: 25px;
-}
-
-#modalBody .modal-date {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 10px;
-}
-
-#modalBody p {
-    color: #333333;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 16px;
-    text-align: justify;
-}
-
-#modalBody .formula {
-    background-color: #f7f9fa;
-    border-left: 4px solid #1abc9c;
-    padding: 12px;
-    margin: 15px 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    text-align: center;
-    color: #2c3e50;
-}
-
-#modalBody ul {
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-#modalBody ul li {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-    color: #4a5568;
-}
-
-#modalBody .modal-tags {
-    color: #1abc9c;
-    font-weight: bold;
-    margin-top: 25px;
-    border-top: 1px dashed #e2e8f0;
-    padding-top: 15px;
-}
-
-/* =======================================================================
-   8. СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ (ВКЛЮЧАЯ ФОРМУ ИЗ ПР7)
-   =======================================================================*/
-body.dark-theme {
-    background-color: #1a1a2e; 
-    color: #e2e8f0;
-}
-
-body.dark-theme header {
-    background-color: #111122; 
-}
-
-body.dark-theme article {
-    background-color: #222538; 
-    border-color: #2d324d;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-theme article header h3,
-body.dark-theme section h2,
-body.dark-theme aside h3 {
-    color: #ffffff !important; 
-}
-
-body.dark-theme article header p {
-    color: #cbd5e1 !important; 
-}
-
-body.dark-theme aside {
-    background-color: #222538; 
-    border-left-color: #1abc9c;
-}
-
-body.dark-theme aside p,
-body.dark-theme article p {
-    color: #cbd5e1; 
-}
-
-body.dark-theme .read-more-btn {
-    color: #ffffff;
-}
-body.dark-theme .read-more-btn:hover {
-    color: #1abc9c;
-}
-
-body.dark-theme .like-btn {
-    background-color: #2d324d;
-    color: #fff;
-    border-color: #454d74;
-}
-
-body.dark-theme #searchInput {
-    background-color: #222538;
-    color: white;
-    border-color: #2d324d;
-}
-
-/* Темная тема для новой формы публикации */
-body.dark-theme .article-form {
-    background-color: #222538;
-    border-color: #2d324d;
-}
-
-body.dark-theme .article-form h3 {
-    color: #ffffff;
-}
-
-body.dark-theme .form-group label {
-    color: #cbd5e1;
-}
-
-body.dark-theme .form-group input, 
-body.dark-theme .form-group textarea {
-    background-color: #1a1a2e;
-    color: white;
-    border-color: #2d324d;
-}
-
-body.dark-theme .form-group input:focus, 
-body.dark-theme .form-group textarea:focus {
-    border-color: #1abc9c;
-}
-
-body.dark-theme .submit-btn { 
-    background-color: #1abc9c; 
-}
-
-body.dark-theme .submit-btn:hover { 
-    background-color: #16a085; 
-}
-
-/* Модальное окно в темной теме */
-body.dark-theme .modal-content {
-    background-color: #222538;
-    color: #e2e8f0;
-    border: 1px solid #2d324d;
-}
-body.dark-theme #modalBody h3 {
-    color: #ffffff;
-}
-body.dark-theme #modalBody p,
-body.dark-theme #modalBody ul li {
-    color: #cbd5e1;
-}
-body.dark-theme #modalBody .formula {
-    background-color: #1b1d2a;
-    color: #1abc9c;
-}
-
-/* =============================================================
-   9. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
-   =============================================================*/
-@media (max-width: 768px) {
-    body > header {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        gap: 15px;
+// =======================================================================
+// 1. БАЗА ДАННЫХ СТАТЕЙ (С сохранением вашей тематики и LocalStorage)
+// =======================================================================
+let initialArticles = JSON.parse(localStorage.getItem('myBlogPosts')) || [
+    {
+        id: 1,
+        title: "Формулы движения, которые управляют GTA и Minecraft",
+        date: "25 октября 2026",
+        isoDate: "2026-10-25",
+        text: `
+            <p>Как уравнения кинематики из школьного учебника превращаются в алгоритмы для перемещения игровых персонажей? Разбираем, как с помощью векторов, формул равномерного и равноускоренного движения заставить объект реалистично падать, прыгать и ускоряться в коде.</p>
+            <div class="formula">
+                <span style="font-style: italic;">S = V<sub>0</sub> &middot; t + <div style="display: inline-block; text-align: center; vertical-align: middle;"><div style="border-bottom: 1px solid; padding: 0 4px;">a &middot; t<sup>2</sup></div><div>2</div></div></span>
+            </div>
+            <p>В коде игры этот процесс просчитывается каждый кадр (интервал времени dt). Вместо сложных интегралов программисты используют метод Эйлера: каждую итерацию цикла позиция объекта изменяется на величину скорости, а скорость изменяется под действием ускорения свободного падения:</p>
+            <div class="formula">
+                <span style="font-style: italic;">x = x + v<sub>x</sub> &middot; dt</span>
+                <span style="margin: 0 25px;">|</span>
+                <span style="font-style: italic;">v<sub>y</sub> = v<sub>y</sub> + g &middot; dt</span>
+            </div>
+            <p>Именно такое простое дискретное сложение сил моделирует реалистичную физику прыжка и падения блоков в современных 3D-песочницах.</p>
+        `,
+        tags: "#кинематика #механика #разработка_игр",
+        likes: 0,
+        isLiked: false
+    },
+    {
+        id: 2,
+        title: "Законы Ньютона на языке векторов и кода",
+        date: "20 октября 2026",
+        isoDate: "2026-10-20",
+        text: `
+            <p>Каждый раз, когда машина в симуляторе врезается в стену, компьютер просчитывает законы динамики. В этой статье мы переведем три закона Ньютона на язык векторов и напишем простую логику симуляции сил, массы и ускорения для физического движка.</p>
+            <ul>
+                <li><strong>Первый закон (Инерция):</strong> Объект продолжает двигаться с постоянной скоростью, пока вектор суммы всех сил равен нулю.</li>
+                <li><strong>Второй закон (Основное уравнение):</strong> Формулируется как сила равна произведению массы на ускорение: 
+                    <div class="formula"><span style="font-family: serif; font-style: italic;">F&#8407; = m &middot; a&#8407;</span></div>
+                    Для программиста это означает поиск ускорения через деление силы на массу: 
+                    <div class="formula"><span style="font-family: serif; font-style: italic;">a&#8407; = <div style="display: inline-block; text-align: center; vertical-align: middle;"><div style="border-bottom: 1px solid; padding: 0 4px;">F&#8407;</div><div>m</div></div></span></div>
+                </li>
+                <li><strong>Третий закон (Противодействие):</strong> Силы взаимодействия двух тел равны по модулю и противоположны по направлению: 
+                    <div class="formula"><span style="font-family: serif; font-style: italic;">F&#8407;<sub>1</sub> = &minus;F&#8407;<sub>2</sub></span></div>
+                </li>
+            </ul>
+            <p>Если к машине прикладывается сила тяги двигателя, мы делим её на массу авто, получаем вектор ускорения и прибавляем его к текущей скорости.</p>
+        `,
+        tags: "#динамика #ньютон #алгоритмы",
+        likes: 0,
+        isLiked: false
+    },
+    {
+        id: 3,
+        title: "Реактивное движение: летим в космос на уравнениях Мещерского",
+        date: "15 октября 2026",
+        isoDate: "2026-10-15",
+        text: `
+            <p>Закон сохранения импульса объясняет, почему взлетает ракета. Но как закодировать изменение массы топлива каждую миллисекунду? Изучаем уравнения движения тел с переменной массой и строим математическую модель старта ракеты на языке программирования.</p>
+            <div class="formula">
+                <span style="font-style: italic;">m &middot; <div style="display: inline-block; text-align: center; vertical-align: middle;"><div style="border-bottom: 1px solid;">dv&#8407;</div><div>dt</div></div> = F&#8407; + u&#8407; &middot; <div style="display: inline-block; text-align: center; vertical-align: middle;"><div style="border-bottom: 1px solid;">dm</div><div>dt</div></div></span>
+            </div>
+            <p>Где <code>u&#8407;</code> — вектор скорости истечения газов, а <code>dm/dt</code> — секундный расход массы.</p>
+        `,
+        tags: "#импульс #космос #симуляция",
+        likes: 0,
+        isLiked: false
+    },
+    {
+        id: 4,
+        title: "Сила трения и концепция сопротивления среды в коде",
+        date: "10 октября 2026",
+        isoDate: "2026-10-10",
+        text: `
+            <p>Почему запущенный в игре мяч останавливается, а не катится бесконечно? Без симуляции сил трения и сопротивления воздуха любой игровой мир превратился бы в идеальный лед.</p>
+            <p>Сила трения скольжения описывается классической формулой:</p>
+            <div class="formula"><span style="font-style: italic;">F<sub>trenie</sub> = &mu; &middot; N</span></div>
+            <p>В коде простейших двухмерных игр сопротивление среды часто моделируют более простым трюком — затуханием скорости (damping). Каждый кадр скорость объекта умножается на коэффициент меньше единицы:</p>
+            <div class="formula">
+                <span style="font-style: italic;">v<sub>x</sub> = v<sub>x</sub> &middot; 0.98</span>
+                <span style="margin: 0 25px;">|</span>
+                <span style="font-style: italic;">v<sub>y</sub> = v<sub>y</sub> &middot; 0.98</span>
+            </div>
+        `,
+        tags: "#динамика #физика_игр #механика",
+        likes: 0,
+        isLiked: false
+    },
+    {
+        id: 5,
+        title: "Законы сохранения энергии в программировании коллизий",
+        date: "05 октября 2026",
+        isoDate: "2026-10-05",
+        text: `
+            <p>Как просчитать отскок двух бильярдных шаров при столкновении? Ответ кроется в совместном использовании закона сохранения импульса и закона сохранения механической энергии.</p>
+            <div class="formula"><span style="font-style: italic;">E<sub>kin1</sub> + E<sub>kin2</sub> = E<sub>kin1</sub>' + E<sub>kin2</sub>'</span></div>
+            <p>В коде обработчика столкновений мы раскладываем векторы скоростей шаров на нормальную и тангенциальную составляющие. После этого мы обмениваем нормальные скорости шаров между собой.</p>
+        `,
+        tags: "#энергия #импульс #коллизии",
+        likes: 0,
+        isLiked: false
+    }
+];
+
+const postsContainer = document.getElementById('postsContainer');
+
+// Helper для очистки превью текста в ленте блога от HTML-тегов
+function getPlainText(htmlString) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlString;
+    const formulas = tempDiv.querySelectorAll('.formula');
+    formulas.forEach(f => f.textContent = " [Формула] ");
+    return tempDiv.textContent || tempDiv.innerText || "";
+}
+
+// =======================================================================
+// 2. ФУНКЦИЯ ДИНАМИЧЕСКОГО РЕНДЕРИНГА СТАТЕЙ
+// =======================================================================
+function renderArticles(articlesArray) {
+    postsContainer.innerHTML = '';
+    
+    if (articlesArray.length === 0) {
+        postsContainer.innerHTML = '<p class="no-results">Ничего не найдено</p>';
+        return;
     }
     
-    nav ul {
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap; 
-    }
+    articlesArray.forEach(article => {
+        const plainTextSnippet = getPlainText(article.text);
+        const likedClass = article.isLiked ? 'liked' : '';
+        const likedText = article.isLiked ? '❤ Вы лайкнули' : '❤ Лайк';
+        
+        const articleHtml = `
+            <article data-id="${article.id}">
+                <header>
+                    <h3>${article.title}</h3>
+                    <p>Опубликовано: <time datetime="${article.isoDate}">${article.date}</time></p>
+                </header>
+                <p class="article-text short">${plainTextSnippet}</p>
+                <button class="read-more-btn">Читать далее</button>
+                <footer>
+                    <p>Теги: ${article.tags}</p>
+                    <button class="like-btn ${likedClass}"><span>${likedText}</span> (<span class="like-count">${article.likes || 0}</span>)</button>
+                </footer>
+            </article>
+        `;
+        postsContainer.insertAdjacentHTML('beforeend', articleHtml);
+    });
+
+    initLikeButtons();
+    initReadMoreButtons(); 
+}
+
+renderArticles(initialArticles);
+// =======================================================================
+// 3. РЕАЛИЗАЦИЯ ЖИВОГО ПОИСКА
+// =======================================================================
+const searchInput = document.getElementById('searchInput');
+
+if (searchInput) {
+    searchInput.addEventListener('input', function(event) {
+        const searchText = event.target.value.toLowerCase().trim();
+        
+        const filteredArticles = initialArticles.filter(article => {
+            const inTitle = article.title.toLowerCase().includes(searchText);
+            const inText = article.text.toLowerCase().includes(searchText);
+            const inTags = article.tags.toLowerCase().includes(searchText);
+            return inTitle || inText || inTags;
+        });
+        
+        renderArticles(filteredArticles);
+    });
+}
+
+// =======================================================================
+// 4. ЛОГИКА РАБОТЫ МОДАЛЬНОГО ОКНА (ОТКРЫТИЕ СТАТЬИ)
+// =======================================================================
+const modal = document.getElementById('articleModal');
+const modalBody = document.getElementById('modalBody');
+const closeModalSpan = document.querySelector('.close-modal');
+
+function initReadMoreButtons() {
+    const readMoreButtons = document.querySelectorAll('.read-more-btn');
     
-    main {
-        flex-direction: column; 
-        gap: 20px;
-        margin: 20px auto;
-        padding: 0 10px;
+    readMoreButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const articleId = parseInt(btn.closest('article').getAttribute('data-id'));
+            const fullArticle = initialArticles.find(item => item.id === articleId);
+            
+            modalBody.innerHTML = `
+                <h3>${fullArticle.title}</h3>
+                <p class="modal-date">Опубликовано: ${fullArticle.date}</p>
+                ${fullArticle.text.startsWith('<p>') ? fullArticle.text : `<p>${fullArticle.text}</p>`}
+                <p class="modal-tags">Теги: ${fullArticle.tags}</p>
+            `;
+            
+            modal.style.display = 'flex';
+        });
+    });
+}
+
+if (closeModalSpan) {
+    closeModalSpan.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
-    
-    main section, 
-    main aside {
-        flex: none;
-        width: 100%;
-    }
-    
-    article {
-        padding: 20px;
-    }
+});
+
+// =======================================================================
+// 5. ОГРАНИЧЕНИЕ ЛАЙКОВ И ИХ СОХРАНЕНИЕ В LOCALSTORAGE
+// =======================================================================
+function initLikeButtons() {
+    const likeButtons = document.querySelectorAll('.like-btn');
+    likeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const articleId = parseInt(button.closest('article').getAttribute('data-id'));
+            const targetArticle = initialArticles.find(item => item.id === articleId);
+            
+            if (targetArticle.isLiked) return;
+            
+            targetArticle.likes = (targetArticle.likes || 0) + 1;
+            targetArticle.isLiked = true;
+            
+            localStorage.setItem('myBlogPosts', JSON.stringify(initialArticles));
+            
+            const countSpan = button.querySelector('.like-count');
+            const textSpan = button.querySelector('span');
+            countSpan.textContent = targetArticle.likes;
+            textSpan.textContent = '❤ Вы лайкнули';
+            
+            button.classList.add('liked');
+        });
+    });
+}
+
+// =======================================================================
+// 6. ПЕРЕКЛЮЧАТЕЛЬ ТЕМ ОФОРМЛЕНИЯ
+// =======================================================================
+const themeButton = document.getElementById('themeBtn');
+
+if (themeButton) {
+    themeButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        if (document.body.classList.contains('dark-theme')) {
+            themeButton.textContent = 'Светлая тема';
+        } else {
+            themeButton.textContent = 'Темная тема';
+        }
+    });
+}
+
+// =======================================================================
+// 7. СБОР ДАННЫХ ИЗ ФОРМЫ, ВАЛИДАЦИЯ И ОБНОВЛЕНИЕ БАЗЫ ДАННЫХ (ПР7)
+// =======================================================================
+const addForm = document.getElementById('addArticleForm');
+const postTitleInput = document.getElementById('postTitle');
+const postTextInput = document.getElementById('postText');
+const postTagsInput = document.getElementById('postTags');
+
+if (addForm) {
+    addForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const titleValue = postTitleInput.value.trim();
+        const textValue = postTextInput.value.trim();
+        const tagsValue = postTagsInput.value.trim() || "#физика";
+        
+        // Валидация длин строк (Исправленные скобки из методички)
+        if (titleValue.length < 5) {
+            alert('Ошибка: Заголовок статьи должен быть не короче 5 символов!');
+            return; 
+        }
+        if (textValue.length < 20) {
+            alert('Ошибка: Описание слишком короткое. Расскажите подробнее (минимум 20 символов)!');
+            return; 
+        }
+        
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+        const isoDate = today.toISOString().split('T')[0]; 
+        
+        const newArticle = {
+            id: Date.now(), 
+            title: titleValue,
+            date: formattedDate,
+            isoDate: isoDate,
+            text: textValue.includes('<p>') ? textValue : `<p>${textValue}</p>`, 
+            tags: tagsValue,
+            likes: 0,
+            isLiked: false
+        };
+        
+        initialArticles.unshift(newArticle);
+        localStorage.setItem('myBlogPosts', JSON.stringify(initialArticles));
+        renderArticles(initialArticles);
+        addForm.reset();
+    });
 }
 
 
