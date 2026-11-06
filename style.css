@@ -257,9 +257,71 @@ body > footer a:hover {
     text-align: center;
     margin-top: 20px;
 }
+/* =======================================================================
+   6. СТИЛИ ИНТЕРАКТИВНОЙ ФОРМЫ ДОБАВЛЕНИЯ СТАТЕЙ (ПР7)
+   =======================================================================*/
+.article-form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.article-form h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: #333333;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #1abc9c;
+}
+
+.submit-btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover { 
+    background-color: #34495e; 
+}
 
 /* =======================================================================
-   6. СТИЛИ МОДАЛЬНОГО ОКНА (ВСПЛЫВАЮЩЕЕ ОКНО СТАТЬИ)
+   7. СТИЛИ МОДАЛЬНОГО ОКНА (ВСПЛЫВАЮЩЕЕ ОКНО СТАТЬИ)
    =======================================================================*/
 .modal {
     display: none; 
@@ -364,7 +426,7 @@ body > footer a:hover {
 }
 
 /* =======================================================================
-   7. СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ
+   8. СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ (ВКЛЮЧАЯ ФОРМУ ИЗ ПР7)
    =======================================================================*/
 body.dark-theme {
     background-color: #1a1a2e; 
@@ -420,6 +482,41 @@ body.dark-theme #searchInput {
     border-color: #2d324d;
 }
 
+/* Темная тема для новой формы публикации */
+body.dark-theme .article-form {
+    background-color: #222538;
+    border-color: #2d324d;
+}
+
+body.dark-theme .article-form h3 {
+    color: #ffffff;
+}
+
+body.dark-theme .form-group label {
+    color: #cbd5e1;
+}
+
+body.dark-theme .form-group input, 
+body.dark-theme .form-group textarea {
+    background-color: #1a1a2e;
+    color: white;
+    border-color: #2d324d;
+}
+
+body.dark-theme .form-group input:focus, 
+body.dark-theme .form-group textarea:focus {
+    border-color: #1abc9c;
+}
+
+body.dark-theme .submit-btn { 
+    background-color: #1abc9c; 
+}
+
+body.dark-theme .submit-btn:hover { 
+    background-color: #16a085; 
+}
+
+/* Модальное окно в темной теме */
 body.dark-theme .modal-content {
     background-color: #222538;
     color: #e2e8f0;
@@ -438,7 +535,7 @@ body.dark-theme #modalBody .formula {
 }
 
 /* =============================================================
-   8. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+   9. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
    =============================================================*/
 @media (max-width: 768px) {
     body > header {
@@ -471,3 +568,4 @@ body.dark-theme #modalBody .formula {
         padding: 20px;
     }
 }
+
