@@ -4,82 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Динамика Кода | Главная</title>
-    <!-- Подключаем внешний файл стилей -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Конфигурация и подключение MathJax для отображения красивых формул -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
-    </script>
-    <script src="https://jsdelivr.net" id="MathJax-script" async></script>
 </head>
-<body id="home">
+<body>
 
-    <!-- Шапка сайта -->
+    <!-- Главная шапка сайта -->
     <header>
         <h1>Динамика Кода</h1>
         <nav>
             <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#articles">Статьи</a></li>
-                <!-- Кнопка переключения темы -->
-                <li><button class="theme-btn" id="themeBtn">Темная тема</button></li>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li><button id="themeBtn" class="theme-btn">Темная тема</button></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Основное содержимое страницы -->
+    <!-- Основной контент сайта -->
     <main>
-
-        <!-- ЛЕВАЯ КОЛОНКА: Раздел публикаций с живым поиском -->
+        <!-- Секция со статьями -->
         <section id="articles">
             <h2>Публикации</h2>
-            
-            <!-- Поле живого поиска -->
+
+            <!-- Форма добавления новой статьи -->
+            <form id="addArticleForm" class="article-form">
+                <h3>Добавить новую публикацию</h3>
+                <div class="form-group">
+                    <label for="postTitle">Заголовок статьи:</label>
+                    <input type="text" id="postTitle" required placeholder="Например: Симуляция гравитации на Python">
+                </div>
+                <div class="form-group">
+                    <label for="postText">Текст статьи:</label>
+                    <textarea id="postText" rows="4" required placeholder="Опишите физические формулы и алгоритмы их реализации..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postTags">Теги (через пробел):</label>
+                    <input type="text" id="postTags" placeholder="Например: #физика #механика #python">
+                </div>
+                <button type="submit" class="submit-btn">Опубликовать статью</button>
+            </form>
+
+            <!-- Живой поиск -->
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Введите название, текст или тег статьи для поиска...">
+                <input type="text" id="searchInput" placeholder="Поиск по названию, тексту или тегам...">
             </div>
-            
-            <!-- В этот пустой контейнер JavaScript будет вставлять наши статьи -->
-            <div id="postsContainer"></div>
+
+            <!-- Контейнер для динамического вывода статей из JavaScript -->
+            <div id="postsContainer">
+                <!-- Статьи будут генерироваться здесь автоматически -->
+            </div>
         </section>
 
-        <!-- ПРАВАЯ КОЛОНКА: Боковая панель -->
-        <aside id="about">
+        <!-- Боковая панель (Sidebar) -->
+        <aside>
             <h3>Об авторе</h3>
-            <p>Привет! Меня зовут Алекс. Я изучаю физику и программирование, создаю симуляции движения на Python и рассказываю, как формулы из учебника работают в реальных IT-проектах.</p>
+            <p>Привет! Меня зовут Александр. Я изучаю физику и программирование, создаю симуляции движения на Python и рассказываю, как формулы из учебника работают в реальных IT-проектах.</p>
             
             <h3>Подписка</h3>
             <p>Следите за новыми разборами физических движков и алгоритмов в Telegram и YouTube.</p>
         </aside>
-
     </main>
 
     <!-- Подвал сайта -->
     <footer>
-        <p>&copy; 2026 Динамика Кода. Все права защищены.</p>
-        <p><a href="#privacy">Политика конфиденциальности</a></p>
+        <p>© 2026 Динамика Кода. Все права защищены.</p>
+        <p><a href="#">Политика конфиденциальности</a></p>
     </footer>
 
-    <!-- Модальное окно для полного текста статьи -->
+    <!-- Модальное окно для детального просмотра статьи -->
     <div id="articleModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal">×</span>
             <div id="modalBody">
-                <!-- Сюда JavaScript будет подставлять контент статьи -->
+                <!-- Контент полной статьи подгружается сюда динамически -->
             </div>
         </div>
     </div>
 
-    <!-- Подключаем JavaScript-файл перед закрывающим тегом body -->
+    <!-- Подключение главного скрипта логики -->
     <script src="script.js"></script>
 </body>
 </html>
