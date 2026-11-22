@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамика Кода | Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Главная шапка сайта -->
+    <header>
+        <h1>Динамика Кода</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li><button id="themeBtn" class="theme-btn">Темная тема</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Основной контент сайта -->
+    <main>
+        <!-- Секция со статьями -->
+        <section id="articles">
+            <h2>Публикации</h2>
+
+            <!-- Форма добавления новой статьи -->
+            <form id="addArticleForm" class="article-form">
+                <h3>Добавить новую публикацию</h3>
+                <div class="form-group">
+                    <label for="postTitle">Заголовок статьи:</label>
+                    <input type="text" id="postTitle" required placeholder="Например: Симуляция гравитации на Python">
+                </div>
+                <div class="form-group">
+                    <label for="postText">Текст статьи:</label>
+                    <textarea id="postText" rows="4" required placeholder="Опишите физические формулы и алгоритмы их реализации..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postTags">Теги (через пробел):</label>
+                    <input type="text" id="postTags" placeholder="Например: #физика #механика #python">
+                </div>
+                <button type="submit" class="submit-btn">Опубликовать статью</button>
+            </form>
+
+            <!-- Живой поиск -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Поиск по названию, тексту или тегам...">
+            </div>
+
+            <!-- Контейнер для динамического вывода статей из JavaScript -->
+            <div id="postsContainer">
+                <!-- Статьи будут генерироваться здесь автоматически -->
+            </div>
+        </section>
+
+        <!-- Боковая панель (Sidebar) -->
+        <aside>
+            <h3>Об авторе</h3>
+            <p>Привет! Меня зовут Александр. Я изучаю физику и программирование, создаю симуляции движения на Python и рассказываю, как формулы из учебника работают в реальных IT-проектах.</p>
+            
+            <h3>Подписка</h3>
+            <p>Следите за новыми разборами физических движков и алгоритмов в Telegram и YouTube.</p>
+        </aside>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>© 2026 Динамика Кода. Все права защищены.</p>
+        <p><a href="#">Политика конфиденциальности</a></p>
+    </footer>
+
+    <!-- Модальное окно для детального просмотра статьи -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div id="modalBody">
+                <!-- Контент полной статьи подгружается сюда динамически -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение главного скрипта логики -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+
